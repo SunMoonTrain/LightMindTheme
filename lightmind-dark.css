@@ -2685,6 +2685,13 @@ footer {
     color: var(--fg-heading) !important;
 }
 
+/* 表头内的公式跟随表头文字色 */
+#write thead .md-inline-math,
+#write thead .MathJax,
+#write thead .MathJax_SVG {
+    color: inherit !important;
+}
+
 /* CJK inside MathJax — fall back to LXGW WenKai so 中文 in \text {} matches body */
 #write .MathJax text,
 #write .MathJax_SVG text,
