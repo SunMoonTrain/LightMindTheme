@@ -29,6 +29,21 @@
     --accent-soft: #8fb39b; /* 雾色山脊 */
     --accent-warm: #c2a878; /* 阳光余晖 */
 
+    /* Typora 界面控件变量 */
+    --bg-color: var(--bg-page);
+    --side-bar-bg-color: var(--bg-page);
+    --text-color: var(--fg-main);
+    --control-text-color: var(--fg-main);
+    --control-text-hover-color: var(--fg-heading);
+    --item-hover-bg-color: var(--bg-soft);
+    --item-hover-text-color: var(--fg-heading);
+    --active-file-bg-color: var(--bg-soft);
+    --active-file-text-color: var(--accent-deep);
+    --active-file-border-color: var(--accent);
+    --window-border: 1px solid var(--accent-soft);
+    --select-text-bg-color: rgba(74, 124, 89, 0.28);
+    --primary-color: var(--accent);
+
     /* 代码块底色（取自 JetBrains 截图的深海军蓝）*/
     --code-bg: #1e2330;
     --code-bg-soft: #262c3a;
@@ -132,10 +147,65 @@ body {
 }
 
 .sidebar-tabs .tab.active,
-.file-list-item.active,
-.file-tree-node.active > .file-node-content {
+.file-list-item.active {
     background-color: var(--bg-soft);
     color: var(--accent-deep);
+}
+
+/* 文件树只在完整行背景节点上显示选中态 */
+#typora-sidebar .file-library-node.active > .file-node-background {
+    background: var(--bg-soft) !important;
+    border-color: var(--accent) !important;
+}
+#typora-sidebar .file-library-node.active > .file-node-content {
+    color: var(--accent-deep) !important;
+}
+
+/* 右键菜单 / 子菜单 — 使用暖纸色而非默认纯白 */
+.context-menu,
+.context-menu.dropdown-menu,
+.dropdown-menu,
+#spell-check-panel {
+    background: var(--bg-write) !important;
+    color: var(--fg-main) !important;
+    border-color: var(--accent-soft) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.context-menu li > a,
+.dropdown-menu li > a,
+.context-menu button,
+.context-menu .btn {
+    color: var(--fg-main) !important;
+}
+
+.context-menu li > a:hover,
+.context-menu li > a:focus,
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus {
+    background: rgba(74, 124, 89, 0.12) !important;
+    color: var(--fg-heading) !important;
+}
+
+.context-menu .disabled > a,
+.dropdown-menu .disabled > a,
+.context-menu button:disabled,
+.context-menu .btn:disabled {
+    color: var(--fg-faint) !important;
+    opacity: 0.72;
+}
+
+.context-menu .btn,
+.context-menu .btn-default {
+    background: var(--bg-soft) !important;
+    border-color: rgba(74, 124, 89, 0.22) !important;
+}
+
+.context-menu .divider,
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: var(--accent-soft) !important;
+    opacity: 0.65;
 }
 
 /* 顶部工具栏 / 窗口 */
