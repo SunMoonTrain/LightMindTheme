@@ -233,11 +233,38 @@ body {
 /* 顶部工具栏 / 窗口 */
 #top-titlebar,
 header,
+.megamenu-opened header,
 .megamenu-content,
 footer {
     background: var(--bg-page);
     color: var(--fg-main);
     font-family: var(--font-body);
+}
+
+/* 一体化菜单：覆盖 Typora 内置的纯白隔行背景 */
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: var(--bg-soft) !important;
+}
+
+/* 一体化菜单侧栏：覆盖 Typora 内置的深灰色 */
+.megamenu-menu {
+    background: var(--bg-soft);
+    color: var(--fg-main);
+}
+
+.megamenu-menu-header {
+    border-bottom-color: var(--accent-soft);
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover,
+.megamenu-menu-header:focus,
+#megamenu-back-btn {
+    color: var(--fg-heading);
+}
+
+#megamenu-back-btn {
+    border-color: var(--accent-soft);
 }
 
 /* 源码模式编辑器 */
