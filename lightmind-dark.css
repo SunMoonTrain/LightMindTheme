@@ -591,9 +591,88 @@ footer {
     background: transparent !important;
 }
 
-/* 围栏右下的语言提示标签 */
-.md-fences .ty-cm-lang-input {
+/* 普通代码块的滚动只发生在编辑器内部，语言栏固定在左上角 */
+#write .md-fences:not(.md-fences-with-preview):not(:has(.md-diagram-panel)) {
+    position: relative;
+    overflow: hidden;
+    padding-top: 48px;
+}
+
+#write .md-fences:not(.md-fences-with-preview):not(:has(.md-diagram-panel))::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 36px;
+    background: var(--code-bg-soft);
+    border-bottom: 1px solid var(--code-line);
+    pointer-events: none;
+}
+
+/* 未聚焦时直接读取围栏的 lang 属性，保证语言名常驻 */
+#write .md-fences:not(.md-fences-with-preview):not(:has(.md-diagram-panel))::after {
+    content: attr(lang);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 18px;
+    z-index: 2;
+    height: 36px;
     color: var(--code-gutter);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+}
+
+#write
+    .md-fences:not(.md-fences-with-preview):not(:has(.md-diagram-panel))
+    .code-tooltip:has(.ty-cm-lang-input) {
+    position: absolute !important;
+    top: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 0 !important;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: 36px !important;
+    margin: 0 !important;
+    padding: 0 18px !important;
+    background: var(--code-bg-soft) !important;
+    border: none !important;
+    border-bottom: 1px solid var(--code-line) !important;
+    box-shadow: none !important;
+    float: none !important;
+    transition: none !important;
+}
+
+#write
+    .md-fences:not(.md-fences-with-preview):not(:has(.md-diagram-panel))
+    .code-tooltip
+    .ty-cm-lang-input {
+    position: static !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    border: none !important;
+    background: transparent !important;
+    color: var(--code-gutter) !important;
+    font-family: var(--font-mono);
+    font-size: 12px !important;
+    font-weight: 500;
+    line-height: 36px !important;
+    letter-spacing: 0.05em;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transform: none !important;
+    transition: none !important;
 }
 
 .md-fences-adv-panel {
