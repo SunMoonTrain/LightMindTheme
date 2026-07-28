@@ -729,16 +729,7 @@ footer {
 }
 
 /* ---------- Mermaid 图表 ---------- */
-/* 外层面板画框，内层预览透明，避免双层框 */
-#write .md-diagram-panel {
-    background: var(--bg-formula) !important;
-    color: var(--fg-main) !important;
-    border: 1px solid rgba(74, 124, 89, 0.2);
-    border-radius: var(--radius);
-    padding: 16px;
-    box-shadow: var(--shadow-sm);
-    font-family: var(--font-body) !important;
-}
+/* 预览面板透明，由外层代码围栏提供背景与边框 */
 #write .md-diagram-panel {
     background: transparent !important;
     border: none !important;
@@ -754,11 +745,6 @@ footer {
 }
 
 /* 让外层面板和围栏跟随图表自适应高度 */
-#write .md-diagram-panel {
-    max-height: none !important;
-    height: auto !important;
-    overflow: visible !important;
-}
 #write .md-fences:has(.md-diagram-panel) {
     height: auto !important;
     overflow: visible !important;
@@ -1267,9 +1253,6 @@ footer {
 #write .md-diagram-panel g[class*="section-"] :is(rect, path, circle, polygon) {
     stroke-width: 1.5px !important;
 }
-#write .md-diagram-panel g[class*="section-"] :is(rect, path, circle, polygon) {
-    stroke-width: 1.5px !important;
-}
 
 /* 所有非根节点节区文字 — 米白色，在彩色底上可读 */
 #write .md-diagram-panel g[class*="section-"]:not(.section-root) text,
@@ -1351,7 +1334,6 @@ footer {
 
 /* ---------- Git 图 (gitGraph) ---------- */
 /* 分支调色板 — 8 个分支对应森林绿族 + 主题色。用复合选择器 .branch.branchN + !important 压过 mermaid 内嵌的 `#mermaidChartN .branch { stroke: #333; stroke-dasharray: 2; }` */
-#write .md-diagram-panel line.branch.branch0,
 #write .md-diagram-panel line.branch.branch0 {
     stroke: #2f5a40 !important;
     stroke-dasharray: none !important;
